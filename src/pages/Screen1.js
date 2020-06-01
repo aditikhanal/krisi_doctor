@@ -4,151 +4,93 @@ import { createBottomTabNavigator, createAppContainer} from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';  
 import Icon from 'react-native-vector-icons/Ionicons';  
 import { useState } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
 import ImagePicker from 'react-native-image-picker';
-import logo from './pp.png'
 
+const options = {
+  title: 'Select Any',
+  takePhotoButtonTitle: 'Take photo with your camera',
+  chooseFromLibraryButtonTitle: 'Choose photo from library',
+}
 // Camera
 class HomeScreen extends React.Component {  
   constructor(props) {
     super(props);
     this.state = {
-      resourcePath: {},
-    };
-  }
+        avatarSource: null,
+        data:null
+    }
+}
+myfun = () => {
+   // alert('clicked');
 
-  selectFile = () => {
-    var options = {
-      title: 'Select Image',
-      customButtons: [
-        { 
-          name: 'customOptionKey', 
-          title: 'Choose file from Custom Option' 
-        },
-      ],
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
+    ImagePicker.showImagePicker(options, (response) => {
+        console.log('Response = ', response);
 
-    ImagePicker.showImagePicker(options, res => {
-      console.log('Response = ', res);
+        if (response.didCancel) {
+            console.log('User cancelled image picker');
+        }
+        else if (response.error) {
+            console.log('Image Picker Error: ', response.error);
+        }
 
-      if (res.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (res.error) {
-        console.log('ImagePicker Error: ', res.error);
-      } else if (res.customButton) {
-        console.log('User tapped custom button: ', res.customButton);
-        alert(res.customButton);
-      } else {
-        let source = res;
-        this.setState({
-          resourcePath: source,
-        });
-      }
+        else {
+            let source = { uri: response.uri };
+
+            // You can also display the image using data:
+            // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+            this.setState({
+                avatarSource: source,
+                data: response.data
+            });
+        }
     });
-  };
-
-  // Launch Camera
-  cameraLaunch = () => {
-    let options = {
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-    ImagePicker.launchCamera(options, (res) => {
-      console.log('Response = ', res);
-
-      if (res.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (res.error) {
-        console.log('ImagePicker Error: ', res.error);
-      } else if (res.customButton) {
-        console.log('User tapped custom button: ', res.customButton);
-        alert(res.customButton);
-      } else {
-        const source = { uri: res.uri };
-        console.log('response', JSON.stringify(res));
-        this.setState({
-          filePath: res,
-          fileData: res.data,
-          fileUri: res.uri
-        });
-      }
-    });
-  }
-
-  imageGalleryLaunch = () => {
-    let options = {
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
-    };
-
-    ImagePicker.launchImageLibrary(options, (res) => {
-      console.log('Response = ', res);
-
-      if (res.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (res.error) {
-        console.log('ImagePicker Error: ', res.error);
-      } else if (res.customButton) {
-        console.log('User tapped custom button: ', res.customButton);
-        alert(res.customButton);
-      } else {
-        const source = { uri: res.uri };
-        console.log('response', JSON.stringify(res));
-        this.setState({
-          filePath: res,
-          fileData: res.data,
-          fileUri: res.uri
-        });
-      }
-    });
-  }  
-
-  render() {
+}
+uploadPic=()=>{
+     alert('your image details');
+}
+render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.container}>
-          <Image
-            source={{
-              uri: 'data:image/jpeg;base64,' + this.state.resourcePath.data,
-            }}
-            style={{ width: 100, height: 100 }}
-          />
-          <Image
-            source={{ uri: this.state.resourcePath.uri }}
-            style={{ width: 200, height: 200 }}
-          />
-          <Text style={{ alignItems: 'center' }}>
-            {this.state.resourcePath.uri}
-          </Text>
+        <View style={styles.cont}>
 
-          <Text style={styles.text1}>Use Camera or Library to know the disease of your plant by clicking Select File.</Text>
+            <Image source={this.state.avatarSource}
+                style={{ width: '100%', height: 300, margin: 10 }} />
 
-          <TouchableOpacity onPress={this.selectFile} style={styles.button}  >
-              <Text style={styles.buttonText}>Select File</Text>
-          </TouchableOpacity>
-          
+
+        <Text style={styles.text1}>Use Camera or Library to know the disease of your plant by clicking Select File.</Text>
+
+            <TouchableOpacity style={{ backgroundColor: '#fff', margin: 5,borderRadius:30, padding: 15, width:200,height:50, alignItems:"center"}}
+                onPress={this.myfun}>
+                <Text style={{ color: '#000' }}>Select File</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{ backgroundColor: '#fff', margin: 5,borderRadius:30, padding: 15, width:200,height:50, alignItems:"center"}}
+            onPress={this.uploadPic}>
+                 <Text style={{ color: '#000' }}>Details</Text>
+            </TouchableOpacity>
 
         </View>
-      </View>
     );
-  }
 }
+}
+
 // AboutUs
 class ProfileScreen extends React.Component {  
   render() {  
     return (  
         <View style={styles.container}> 
-          <View style={styles.logoContainer}>
-            <Image source={logo} style={styles.logo}/>
-          </View> 
-          <Text style={styles.text4}>About Us</Text>
+          <LinearGradient
+               colors={["#357D2C","#C2BF61"]}
+               style={{height:"33%"}}
+             />
+            <View style={{alignItems:"center"}}>
+                    <Image
+                        style={{width:130,height:130,borderRadius:65, marginTop: -50}}
+                        source={{uri:"https://lh3.googleusercontent.com/991kthWAO1VlfecnNk8XNwm_bRWxil7nG34yGi0VoD1PlCO05xAZS4ITXO5vcM-KVh0S=s85"}} 
+                    />
+            </View>
+          <Text style={styles.text4}>Krisi Doctor</Text>
 
            <Text style={styles.text2}>Our App "KRISI DOCTOR" is helpful for classifying the diseases on plants using the idea of image processing. The pictures are fed to the system and the system use the techniques of image processing to give the classified disease to the users.</Text>
 
@@ -176,15 +118,15 @@ const TabNavigator = createMaterialBottomTabNavigator(
                     <View>  
                         <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
                     </View>),  
-                activeColor: 'white',  
+                activeColor: '#357D2C',  
                 inactiveColor: 'black',  
-                barStyle: { backgroundColor: '#357D2C' },  
+                barStyle: { backgroundColor: '#fff' },
             }  
         },  
     },  
     {  
       initialRouteName: "Home",  
-      activeColor: 'white',  
+      activeColor: '#10F02E',  
       inactiveColor: 'black',  
       barStyle: { backgroundColor: '#357D2C' },  
     },  
@@ -192,6 +134,12 @@ const TabNavigator = createMaterialBottomTabNavigator(
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    padding: 0,
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  cont: {
     flex: 1,
     padding: 30,
     alignItems: 'center',
@@ -219,13 +167,11 @@ const styles = StyleSheet.create({
     width: 200
   },
   text4: {
-    fontSize:25,
-    paddingBottom:10,
-    paddingTop: 18,
-    paddingRight:180,
+    fontSize:35,
+    paddingTop:0,
+    paddingLeft:90,
     fontWeight: "bold",
-    color: "black",
-    textDecorationLine: 'underline',
+    color: "green",
     fontStyle:"italic"
   },
   text1: {
@@ -238,15 +184,17 @@ const styles = StyleSheet.create({
   text2: {
     fontSize:15,
     color: "black",
-    margin: 10,
-    alignItems: "center", 
-    justifyContent: "center"
+    margin: 20,
+    alignItems: "center",
+    marginBottom:0
   },
   text3: {
     fontSize:15,
     color: "black",
-    margin: 10,
+    margin: 20,
     alignItems: "center", 
+    paddingBottom:20,
+    paddingTop:0
   }
 });
 
