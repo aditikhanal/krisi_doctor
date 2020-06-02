@@ -1,11 +1,12 @@
-import React from 'react';  
+ import React from 'react';  
 import {StyleSheet, Text, Image, TouchableOpacity, View,Button} from 'react-native';  
-import { createBottomTabNavigator, createAppContainer} from 'react-navigation';  
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';  
+import { createAppContainer} from 'react-navigation';  
+import { createBottomTabNavigator } from 'react-navigation-tabs'; 
 import Icon from 'react-native-vector-icons/Ionicons';  
 import { useState } from 'react';
 import ImagePicker from 'react-native-image-picker';
 import logo from './pp.png'
+import TabBar from "../TabBar.js"
 
 // Camera
 class HomeScreen extends React.Component {  
@@ -158,37 +159,53 @@ class ProfileScreen extends React.Component {
   } 
 }  
 
-const TabNavigator = createMaterialBottomTabNavigator(  
-    {  
-        Home: { screen: HomeScreen,  
-            navigationOptions:{  
-                tabBarLabel:'Camera',  
-                tabBarIcon: ({ tintColor }) => (  
-                    <View>  
-                        <Icon style={[{color: tintColor}]} size={25} name={'ios-camera'}/>  
-                    </View>),  
-            }  
-        },  
-        Profile: { screen: ProfileScreen,  
-            navigationOptions:{  
-                tabBarLabel:'AboutUs',  
-                tabBarIcon: ({ tintColor }) => (  
-                    <View>  
-                        <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
-                    </View>),  
-                activeColor: 'white',  
-                inactiveColor: 'black',  
-                barStyle: { backgroundColor: '#357D2C' },  
-            }  
-        },  
-    },  
-    {  
-      initialRouteName: "Home",  
-      activeColor: 'white',  
-      inactiveColor: 'black',  
-      barStyle: { backgroundColor: '#357D2C' },  
-    },  
-);   
+
+
+const TabNavigator = createBottomTabNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarLabel: 'Camera',
+       tabBarIcon: ({ tintColor }) => (
+        <View>
+          <Icon style={[{color: tintColor}]} size={25} name={'ios-camera'}/>  
+          
+    </View>
+       )
+    }
+  },
+  Profile: {
+    screen:ProfileScreen,
+    navigationOptions: {
+      tabBarLabel: 'AboutUs',
+      tabBarIcon: ({ tintColor }) => (
+        <View>
+           <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
+          
+        </View>
+      )
+    }
+  },
+  
+
+  
+
+  },
+{
+  tabBarComponent: TabBar,
+    initialRouteName: 'Home',
+    order: ["Home",'Profile' ],
+  
+    tabBarOptions: {
+      activeTintColor: 'white',
+       inactiveTintColor: 'black',
+    
+   labelStyle: {
+     fontSize: 13,
+      },
+}
+
+  })
 
 const styles = StyleSheet.create({
   container: {

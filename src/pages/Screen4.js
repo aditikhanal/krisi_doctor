@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import react in our code.
 import { StyleSheet, View, Text, Linking} from 'react-native';
 // import all basic components
-import {  Card} from 'react-native-paper';
+import {  Card} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const openDial=()=>{
@@ -25,7 +25,7 @@ export default class Screen4 extends Component {
           <Text style={styles.text1}>For further details:</Text>
 
           <View style={styles.card}> 
-              <Card style={styles.mycard} onPress={()=>{
+              <Card containerStyle={styles.mycard} onPress={()=>{
                     Linking.openURL("mailto:abc@abc.com")
                 }}>
                     <View style={styles.cardContent }>
@@ -34,7 +34,7 @@ export default class Screen4 extends Component {
                     </View>
                 </Card>
 
-                <Card style={styles.mycard} onPress={()=>openDial()}>
+                <Card containerStyle={styles.mycard} onPress={()=>openDial()}>
                     <View style={styles.cardContent }>
                     <Icon name="phone" size={30} color="#006aff" />
                     <Text style={styles.mytext} >9876543210</Text>
@@ -100,9 +100,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   mycard:{
-    margin:5,
+   // margin:5,
+   //height:30,
     backgroundColor:"#70B086",
-    flexDirection:"row"
+    flexDirection:"row",
+    borderWidth:0
   },
     cardContent:{
     padding:4,
