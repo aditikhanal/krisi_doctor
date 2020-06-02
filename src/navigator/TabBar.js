@@ -7,6 +7,7 @@ import {
   Dimensions
 } from "react-native";
 import posed from "react-native-pose";
+import Colors from "../constants/colors"
 
 const windowWidth = Dimensions.get("window").width;
 const tabWidth = windowWidth/2;
@@ -25,7 +26,7 @@ const S = StyleSheet.create({
   container: {
     flexDirection: "row",
     height: 50,
-    backgroundColor:"#70B086",
+    backgroundColor:Colors.tab,
     elevation: 2,
     alignItems: "center"
   },
@@ -39,8 +40,8 @@ const S = StyleSheet.create({
   spotLightInner: {
     width: 70,
     height: 50,
-    marginBottom:10,
-    backgroundColor: "#357D2C",
+    marginBottom:5,
+    backgroundColor:Colors.lightGreen,
         // borderRadius: 24
     borderBottomLeftRadius: 50, 
     borderBottomRightRadius: 50

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 //import react in our code.
 import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 // import all basic components
-import logo from './pp.png'
+import logo from '../pp.png'
+import Colors from "../../constants/colors"
 
 export default class Screen2 extends Component {
   //Screen2 Component
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#70B086'
+    backgroundColor: Colors.lightGreen
   },
   textBox:{
     borderColor:'black',

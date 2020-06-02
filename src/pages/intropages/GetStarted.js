@@ -3,7 +3,7 @@ import { ImageBackground, Image, StyleSheet, TouchableOpacity, Text, View } from
 import { useState } from 'react';
 
 const image = { uri: "https://www.jakpost.travel/wimages/large/82-827630_green-nature-hd-wallpaper-for-mobile-adsleaf-com.jpg" };
-import logo from './images/p.png'
+import logo from '../../images/p.png'
 
 export default class Second extends React.Component {
   render(){

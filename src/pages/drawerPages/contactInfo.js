@@ -5,6 +5,7 @@ import { StyleSheet, View, Text, Linking} from 'react-native';
 // import all basic components
 import {  Card} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Colors from "../../constants/colors"
 
 const openDial=()=>{
   if(Platform.OS === "android"){
@@ -53,11 +54,11 @@ const styles = StyleSheet.create({
     padding:20,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#70B086'
+    backgroundColor: Colors.lightGreen
   },
   card: {
     flex: 1,
-    backgroundColor: '#70B086',
+    backgroundColor:Colors.lightGreen,
     paddingLeft: 10,
   },
   text4: {

@@ -15,6 +15,7 @@ import {
 
 //Import React Navigation
 import {createAppContainer,createSwitchNavigator } from 'react-navigation';
+
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 
@@ -23,10 +24,11 @@ import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons'; 
 
 //Import all the screens
-import Screen1 from './pages/Screen1';
-import Screen2 from './pages/Screen2';
-import Screen3 from './pages/Screen3';
-import Screen4 from './pages/Screen4';
+import Screen1 from './bottomTabNavigator';
+import Screen2 from '../pages/drawerPages/messageScreen';
+import Screen3 from '../pages/drawerPages/images';
+import Screen4 from '../pages/drawerPages/contactInfo';
+import Colors from "../constants/colors"
 
 //Import Custom Sidebar
 import CustomSidebarMenu from './CustomSidebarMenu';
@@ -45,7 +47,7 @@ class NavigationDrawerStructure extends Component {
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           {/*Donute Button Image */}
           <Image
-            source={require('./images/drawer.png')}
+            source={require('../images/drawer.png')}
             style={{ width: 25, height: 25, marginLeft: 20 }}
           />
         </TouchableOpacity>
@@ -60,12 +62,12 @@ const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Screen1,
     navigationOptions: ({ navigation }) => ({
-      title: '1',
+      title: 'Krisi Doctor',
       headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#357D2C',
+        backgroundColor: Colors.tab,
       },
-      headerTintColor: '#357D2C',
+      headerTintColor: Colors.tab,
     }),
   },
 });
@@ -76,11 +78,11 @@ const Screen2_StackNavigator = createStackNavigator({
   Second: {
     screen: Screen2,
     navigationOptions: ({ navigation }) => ({
-      title: '2',
+      title: 'Message Us',
       headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
-        backgroundColor: '#70B086',
+        backgroundColor: Colors.tab,
       },
       headerTintColor: '#70B086',
     }),
@@ -96,7 +98,7 @@ const Screen3_StackNavigator = createStackNavigator({
       title: '3',
       headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#70B086',
+        backgroundColor: Colors.tab,
       },
       headerTintColor: '#70B086',
     }),
@@ -112,9 +114,9 @@ const Screen4_StackNavigator = createStackNavigator({
       title: '4',
       headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#70B086',
+        backgroundColor: Colors.tab,
       },
-      headerTintColor: '#70B086',
+      headerTintColor: Colors.tab,
     }),
   },
 });

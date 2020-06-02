@@ -2,6 +2,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
+import Colors from "../constants/colors"
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+  listenOrientationChange as loc,
+  removeOrientationListener as rol
+} from "react-native-responsive-screen"
 
 export default class CustomSidebarMenu extends Component {
   constructor() {
@@ -36,19 +43,13 @@ export default class CustomSidebarMenu extends Component {
   render() {
     return (
       <View style={styles.sideMenuContainer}>
-        {/*Top Large Image */}
+        <View style={{backgroundColor:Colors.tab,  width: '100%',alignItems:"center",height:200}}>
+    
+        
+        </View>
         <Image
           source={{ uri: this.proileImage }}
           style={styles.sideMenuProfileIcon}
-        />
-        {/*Divider between Top Image and Sidebar Option*/}
-        <View
-          style={{
-            width: '100%',
-            height: 1,
-            backgroundColor: '#e2e2e2',
-            marginTop: 15,
-          }}
         />
         {/*Setting up Navigation Options from option array using loop*/}
         <View style={{ width: '100%' }}>
@@ -59,7 +60,7 @@ export default class CustomSidebarMenu extends Component {
                 alignItems: 'center',
                 paddingTop: 10,
                 paddingBottom: 10,
-                backgroundColor: global.currentScreenIndex === key ? '#e0dbdb' : '#ffffff',
+                backgroundColor: global.currentScreenIndex === key ? '#e0dbdb' : Colors.lightGreen,
               }}
               key={key}>
               <View style={{ marginRight: 10, marginLeft: 20 }}>
@@ -87,15 +88,16 @@ const styles = StyleSheet.create({
   sideMenuContainer: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#fff',
+    backgroundColor:Colors.lightGreen,
     alignItems: 'center',
-    paddingTop: 20,
+  
   },
   sideMenuProfileIcon: {
-    resizeMode: 'center',
-    width: 150,
-    height: 150,
-    marginTop: 20,
-    borderRadius: 150 / 2,
+    //resizeMode: 'center',
+    width: 180,
+    height: 180,
+    marginTop: -90,
+    borderRadius: 180 / 2,
+    marginBottom:50,
   },
 });
