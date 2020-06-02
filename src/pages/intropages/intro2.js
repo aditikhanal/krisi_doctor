@@ -9,6 +9,7 @@ import {
   removeOrientationListener as rol
 } from "react-native-responsive-screen"
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import Colors from "../../constants/colors"
 
 var radio_props = [
     { value: 0 },
@@ -43,8 +44,9 @@ export default class Intro2 extends React.Component {
         <View style={styles.container}>
     
             <View style={styles.firstView}>
-            <ImageBackground source={image1} style={styles.image}>
-            <Text style={styles.headerText}>Detailed description and photo</Text>
+            <Image source={require("../../images/intro1.png")} style={{width:300,height:400,marginTop:0}}>
+              </Image>
+            <Text style={styles.headerText}>Make sure to take a close view of the picture</Text>
             <RadioForm
                         radio_props={radio_props}
                         initial={1}
@@ -59,7 +61,7 @@ export default class Intro2 extends React.Component {
                         buttonInnerColor={'black'}
                         formHorizontal={true}
                         buttonSize={10}
-                        style={{ alignSelf: 'center', marginTop: 490 }}
+                        style={{ alignSelf: 'center', marginTop: 20 }}
                     />
                      <TouchableOpacity 
                     onPress={() => this.props.navigation.navigate('Welcome')}>
@@ -67,7 +69,7 @@ export default class Intro2 extends React.Component {
                             SKIP
                     </Text>
                     </TouchableOpacity>
-            </ImageBackground>
+           
            
             </View>
    </View>
@@ -77,16 +79,17 @@ export default class Intro2 extends React.Component {
   
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+     // flex: 1,
+      backgroundColor:Colors.lightGreen,
       justifyContent: "center",
       alignItems: "center",
     },
     headerText: {
       fontSize: 30,
-      textAlign: "center",
+      //textAlign: "center",
       paddingTop:30,
       margin: 20,
-      color: 'white',
+      color: 'black',
       fontWeight: "bold"
     },
     text: {
@@ -134,7 +137,7 @@ export default class Intro2 extends React.Component {
     },
     
     firstView: {
-      flex:1,
+     // flex:1,
       width: deviceWidth,
       justifyContent: 'center',
       alignItems: 'center',
@@ -151,22 +154,22 @@ export default class Intro2 extends React.Component {
       alignItems: 'center',
     },
     image: {
-      flex: 1,
-      resizeMode: "cover",
-      width: wp("100%"),
+      //flex: 1,
+     // resizeMode: "cover",
+     // width: wp("100%"),
     },
     image1: {
-      flex: 1,
-      resizeMode: "cover",
-      width: 362,
+     // flex: 1,
+      //resizeMode: "cover",
+     // width: 362,
     },
     image2: {
-      flex: 1,
-      resizeMode: "cover",
-      width: 362,
+      //flex: 1,
+     // resizeMode: "cover",
+     // width: 362,
     },
     skip: {
-        color: "#fff",
+        color: "black",
         alignSelf: 'center',
         fontSize: 20,
         fontWeight: '700',

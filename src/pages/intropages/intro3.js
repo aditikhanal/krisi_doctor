@@ -1,5 +1,3 @@
-// 
-
 import React from 'react';
 import { Platform, ImageBackground, TouchableOpacity, StyleSheet, Text, View, ScrollView, Dimensions, Image } from 'react-native';
 
@@ -11,6 +9,7 @@ import {
   removeOrientationListener as rol
 } from "react-native-responsive-screen"
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import Colors from "../../constants/colors"
 
 var radio_props = [
     { value: 0 },
@@ -19,20 +18,22 @@ var radio_props = [
 ];
 
 
-
+const image = { uri: "https://image.winudf.com/v2/image1/Y29tLkdyZWVuU3ByaW5nTGl2ZVdhbGxwYXBlckhRX3NjcmVlbl8wXzE1NjcwMDA2NTJfMDg4/screen-0.jpg?fakeurl=1&type=.jpg" };
+const image1 = { uri: "https://reusegrowenjoy.com/wp-content/uploads/Best-Apps-to-Help-You-Identify-Plants.jpg" };
 const image2 = { uri: "https://api.pestnet.org/media_store/submissions/2018/7/3b8d37f9-3072-4e70-b646-bf5780139335/ec-1_13_291_large.jpg" };
 
-export default class Intro3 extends React.Component {
-    nextscreen=(value2)=>{
+export default class Intro2 extends React.Component {
+
+    nextscreen=(value1)=>{
       
-        if(value2===0)
+        if(value1===0)
         {
             this.props.navigation.navigate('Intro1')
     
         }
-        else if(value2==1)
+        else if(value1==2)
         {
-            this.props.navigation.navigate('Intro2')
+            this.props.navigation.navigate('Intro3')
             
         }
     
@@ -43,12 +44,13 @@ export default class Intro3 extends React.Component {
         <View style={styles.container}>
     
             <View style={styles.firstView}>
-            <ImageBackground source={image2} style={styles.image}>
-           
+            <Image source={require("../../images/intro2.png")} style={{width:350,height:420,marginTop:10}}>
+              </Image>
+            <Text style={styles.headerText}>Focus on the damages of the leaves</Text>
             <RadioForm
                         radio_props={radio_props}
                         initial={2}
-                        onPress={(value2) => { this.setState({ value2: value2 }) }}
+                        onPress={(value1) => { this.setState({ value1: value1 }) }}
                         buttonColor={'#efefef'}
                         disabled={true}
                         // backgroundColor={'green'}
@@ -59,7 +61,7 @@ export default class Intro3 extends React.Component {
                         buttonInnerColor={'black'}
                         formHorizontal={true}
                         buttonSize={10}
-                        style={{ alignSelf: 'center', marginTop: 630 }}
+                        style={{ alignSelf: 'center', marginTop: 20 }}
                     />
                      <TouchableOpacity 
                     onPress={() => this.props.navigation.navigate('Welcome')}>
@@ -67,23 +69,8 @@ export default class Intro3 extends React.Component {
                             SKIP
                     </Text>
                     </TouchableOpacity>
-
-
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Welcome')}
-              style={{backgroundColor:'white',width:100,height:30,marginTop:5,marginLeft:200, 
-              borderRadius:20 ,marginBottom:80,borderRadius:12,justifyContent:"center"}}><Text style={{
-                               //fontFamily: 'ProximaNova-Regular',
-                                fontSize: 20,
-                               // lineHeight: 20,
-                                fontWeight: '700',
-                                color: 'black',
-                                marginLeft:50,
-                                marginTop:30,
-                               //marginLeft: 115,
-                                marginTop: 0,
-                                justifyContent: 'center'
-                  }}>--></Text></TouchableOpacity>
-            </ImageBackground>
+           
+           
             </View>
    </View>
       );
@@ -92,16 +79,17 @@ export default class Intro3 extends React.Component {
   
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+     // flex: 1,
+      backgroundColor:Colors.lightGreen,
       justifyContent: "center",
       alignItems: "center",
     },
     headerText: {
       fontSize: 30,
-      textAlign: "center",
+      //textAlign: "center",
       paddingTop:30,
       margin: 20,
-      color: 'white',
+      color: 'black',
       fontWeight: "bold"
     },
     text: {
@@ -149,7 +137,7 @@ export default class Intro3 extends React.Component {
     },
     
     firstView: {
-      flex:1,
+     // flex:1,
       width: deviceWidth,
       justifyContent: 'center',
       alignItems: 'center',
@@ -166,29 +154,28 @@ export default class Intro3 extends React.Component {
       alignItems: 'center',
     },
     image: {
-      flex: 1,
-      resizeMode: "cover",
-      width: wp("100%"),
+      //flex: 1,
+     // resizeMode: "cover",
+     // width: wp("100%"),
     },
     image1: {
-      flex: 1,
-      resizeMode: "cover",
-      width: 362,
+     // flex: 1,
+      //resizeMode: "cover",
+     // width: 362,
     },
     image2: {
-      flex: 1,
-      resizeMode: "cover",
-      width: 362,
+      //flex: 1,
+     // resizeMode: "cover",
+     // width: 362,
     },
     skip: {
-        color: "#fff",
+        color: "black",
         alignSelf: 'center',
         fontSize: 20,
         fontWeight: '700',
         fontFamily: "ProximaNova-Semibold",
-        marginTop: 28,
+        marginTop: 25,
         textDecorationLine: 'underline',
     }
-  
   
   });
