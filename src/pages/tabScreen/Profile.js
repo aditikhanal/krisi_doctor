@@ -1,117 +1,125 @@
-import React from 'react';  
-import {StyleSheet, Text, Image, TouchableOpacity, View,Button} from 'react-native';  
-import { createAppContainer} from 'react-navigation';  
-import { createBottomTabNavigator } from 'react-navigation-tabs'; 
-import Icon from 'react-native-vector-icons/Ionicons';  
-import { useState } from 'react';
-import LinearGradient from 'react-native-linear-gradient';
-import Colors from  "../../constants/colors"
+import React, { Component } from "react";
+    import { List, ListItem, Text } from "native-base";
+    import { View, ScrollView, Image, StyleSheet} from "react-native";
 
+    class Profile extends Component {
+    render() {
+        return (
+          <View style={styles.container}>
+            <ScrollView>
+            <ScrollView horizontal={true}>
+                <List>
 
+                <ListItem>
+                <Text style={{
+                                fontSize: 20,
+                                fontWeight: '700',
+                                color: '#000',
+                                marginLeft:12,
+                }}>हाम्रो अनुप्रयोग प्रयोग गर्न सजिलो चरणहरू!!</Text>
+                
+                </ListItem>
 
+                <ListItem>
+                <Text style={{
+                                fontSize: 16,
+                                fontWeight: '600',
+                                color: 'green',
+                                marginLeft:0,
+                }}>१. 'चित्र चयन गर्नुहोस्' बटनमा{'\n'}     क्लिक गर्नुहोस्। तस्वीर{'\n'}     लोड गर्न क्यामेरा वा ग्यालरी{'\n'}     चयन गर्नुहोस्।</Text>
+                  <Text style={{
+                                fontSize: 16,
+                                fontWeight: '600',
+                                color: 'green',
+                                marginLeft:5,
+                  }}>२. पत्ता लागेको रोग देखाइन्छ{'\n'}     वा तल देखाइए अनुसार{'\n'}     स्वस्थ बाली पनि हुन सक्छ।</Text>
+                </ListItem>
+                
+                <ListItem>
+                <Image
+                   style={{ width: "45%", height: 300, resizeMode: "cover", margin: 5}}
+                    source={require("../../images/g.jpg")} 
+               />
+               <Image
+                   style={{ width: "45%", height: 300, resizeMode: "cover", margin:5 }}
+                    source={require("../../images/h.jpg")} 
+               />
+                </ListItem>
 
-const options = {
-  title: 'Select Any',
-  takePhotoButtonTitle: 'Take photo with your camera',
-  chooseFromLibraryButtonTitle: 'Choose photo from library',
-}
-// Camera
+                <ListItem>
+                <Text style={{
+                                fontSize: 16,
+                                fontWeight: '600',
+                                color: 'green',
+                                marginLeft:0,
+                }}>३. तल देखाइएको तीरमा क्लिक{'\n'}     गर्नुहोस्। एउटा ड्रअर धेरै{'\n'}     पेजहरूका साथ देखा पर्नेछ।</Text>
+                  <Text style={{
+                                fontSize: 16,
+                                fontWeight: '600',
+                                color: 'green',
+                                marginLeft:5,
+                  }}>४. सन्देश पठाउन 'हामीलाई{'\n'}     सन्देश पठाउनुहोस्' पेज{'\n'}     चयन गर्नुहोस्।</Text>
+                </ListItem>
 
+                <ListItem>
+                <Image
+                   style={{ width: "45%", height: 300, resizeMode: "cover", margin:5}}
+                    source={require("../../images/i.jpg")} 
+               />
+               <Image
+                   style={{ width: "45%", height: 300, resizeMode: "cover", margin:5 }}
+                    source={require("../../images/j.jpg")} 
+               />
+                </ListItem>
+                  
+                <ListItem>
+                <Text style={{
+                                fontSize: 16,
+                                fontWeight: '600',
+                                color: 'green',
+                                marginLeft:0,
+                }}>५. हामीलाई तपाईले चाहानु{'\n'}     भएको कुनै पनि प्रश्नहरू{'\n'}     पठाउनुहोस्। त्यसपछि{'\n'}     पठाउन 'बुझाउनुहोस्' बटन {'\n'}     क्लिक गर्नुहोस्।</Text>
+                  <Text style={{
+                                fontSize: 16,
+                                fontWeight: '600',
+                                color: 'green',
+                                marginLeft:0,
+                  }}>६. तपाईं यस पेजमा हाम्रो{'\n'}       सम्पर्क नम्बर र ईमेल{'\n'}       पाउनुहुनेछ।</Text>
+                </ListItem>
 
-// AboutUs
-class ProfileScreen extends React.Component {  
-  render() {  
-    return (  
-        <View style={styles.container}> 
-          <LinearGradient
-               colors={["#357D2C","#C2BF61"]}
-               style={{height:"33%"}}
-             />
-            <View style={{alignItems:"center"}}>
-                    <Image
-                        style={{width:130,height:130,borderRadius:65, marginTop: -50}}
-                        source={{uri:"https://lh3.googleusercontent.com/991kthWAO1VlfecnNk8XNwm_bRWxil7nG34yGi0VoD1PlCO05xAZS4ITXO5vcM-KVh0S=s85"}} 
-                    />
-            </View>
-          <Text style={styles.text4}>Krisi Doctor</Text>
+                <ListItem>
+                <Image
+                   style={{ width: "45%", height: 300, resizeMode: "cover", margin:5}}
+                    source={require("../../images/k.jpg")} 
+               />
+               <Image
+                   style={{ width: "45%", height: 300, resizeMode: "cover", margin:5}}
+                    source={require("../../images/l.jpg")} 
+               />
+                </ListItem>
+               
+                <ListItem>
+                    <Text>   हामी आशा गर्दछौं कि तपाईले हाम्रो अनुप्रयोग प्रयोग गर्न {'\n'}   सजिलो पाउनुहुनेछ। </Text>
+                </ListItem>
+                
+                </List>
+            </ScrollView>
+            </ScrollView>
+        </View>
+        );
+    }
+    }
 
-           <Text style={styles.text2}>Our App "KRISI DOCTOR" is helpful for classifying the diseases on plants using the idea of image processing. The pictures are fed to the system and the system use the techniques of image processing to give the classified disease to the users.</Text>
-
-           <Text style={styles.text3}>              The disease identification in the present context is done manually but due to the so many environmental changes the prediction is becoming tough. So we can use image processing techniques for identification of plant disease. </Text>
-        </View>  
-    );  
-  } 
-}  
-
-
-
-export default ProfileScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop:0,
-    backgroundColor:Colors.lightGreen,
-    flex:1
-    
- 
-  },
-  cont: {
-    flex: 1,
-    padding: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#357D2C'
-  },
-  button: {
-    width: 250,
-    height: 50,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 25,
-    marginBottom:12,  
-  },
-  buttonText: {
-    textAlign: 'center',
-    fontSize: 17,
-    color: '#000',
-    fontWeight: '700',
-  },
-  logoContainer: {
-    alignItems: "center",
-    height: 180,
-    width: 200
-  },
-  text4: {
-    fontSize:35,
-    paddingTop:0,
-    paddingLeft:90,
-    fontWeight: "bold",
-    color: "green",
-    fontStyle:"italic"
-  },
-  text1: {
-    fontSize:15,
-    paddingBottom:20,
-    fontWeight: "bold",
-    color: "black",
-    alignItems: "center"
-  },
-  text2: {
-    fontSize:15,
-    color: "black",
-    margin: 20,
-    alignItems: "center",
-    marginBottom:0
-  },
-  text3: {
-    fontSize:15,
-    color: "black",
-    margin: 20,
-    alignItems: "center", 
-    paddingBottom:20,
-    paddingTop:0
-  }
-});
-
-
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        justifyContent: "center",
+        backgroundColor: "#C8E6C9"
+      },
+      text: {
+        fontSize: 20,
+        paddingLeft:85,
+        fontWeight: "bold"
+      },
+    });
+    export default Profile;

@@ -30,14 +30,14 @@ export default class Intro1 extends React.Component {
     
             <View style={styles.firstView}>
             <ImageBackground source={image} style={styles.image}>
-            <Text style={styles.text}> WELCOME TO KRISI DOCTOR!!!!</Text>
-              <Text style={styles.text1}> Android app that detects diseases of</Text>
+            <Text style={styles.text}> कृषि डाक्टरमा तपाईलाई स्वागत छ !! </Text>
+              <Text style={styles.text1}>बिरूवाको रोग पत्ता लगाउने एक </Text>
   
-              <Text style={styles.text2}>Plants</Text>
+             <Text style={styles.text2}>एन्ड्रोइड अनुप्रयोग </Text>
   
-              <Text style={styles.text3}>Identify problems in your fields in a snap..</Text>
+              <Text style={styles.text3}>एक स्न्यापमा तपाईको बोटहरुमा समस्याको पहिचान गर्नुहोस्!!</Text>
   
-              <Text style={styles.text4}>(Classify 14 species of crops including: apple, blueberry, cherry, grape, orange, peach, pepper, potato, raspberry, soy, squash, strawberry and tomato.)</Text>
+              <Text style={styles.text4}>(यी चौध प्रजातिहरू बीचको रोग पत्ता लगाउनुहोस्: स्याउ, निलोबेरी, चेरी, अंगूर, सुन्तला, आडू, काली मिर्च, आलु, रास्पबेरी, सोया, स्क्वाश, स्ट्रबेरी र टमाटर।)</Text>
               <RadioForm
                         radio_props={radio_props}
                         initial={0}
@@ -50,12 +50,12 @@ export default class Intro1 extends React.Component {
                         buttonInnerColor={'black'}
                         formHorizontal={true}
                         buttonSize={10}
-                        style={{ alignSelf: 'center', marginTop: 150 }}
+                        style={{ alignSelf: 'center', marginTop: 90 }}
                     />
                      <TouchableOpacity 
                     onPress={() => this.props.navigation.navigate('Welcome')}>
                         <Text style={styles.skip}>
-                            SKIP
+                        छोड्नुहोस्
                     </Text>
                     </TouchableOpacity>
             </ImageBackground>
@@ -88,9 +88,9 @@ export default class Intro1 extends React.Component {
       fontWeight: "bold"
     },
     text1: {
-      fontSize:25,
-      paddingTop: 55,
-      paddingLeft:18,
+      fontSize:21,
+      paddingTop: 63,
+      paddingLeft:19,
       paddingRight:124,
       paddingBottom:0,
       fontWeight: "bold",
@@ -98,8 +98,8 @@ export default class Intro1 extends React.Component {
       alignItems: "center", 
     },
     text2: {
-      fontSize:65,
-      paddingLeft:28,
+      fontSize:28,
+      paddingLeft:20,
       paddingRight:140,
       fontWeight: "bold",
       color: "black",
@@ -115,7 +115,7 @@ export default class Intro1 extends React.Component {
       margin:5,
     },
     text4: {
-      fontSize:12,
+      fontSize:13,
       paddingTop:0,
       paddingLeft:20,
       paddingRight:110,

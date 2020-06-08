@@ -25,10 +25,10 @@ const TabNavigator = createBottomTabNavigator({
   Profile: {
     screen:ProfileScreen,
     navigationOptions: {
-      tabBarLabel: 'AboutUs',
+      tabBarLabel: 'Info',
       tabBarIcon: ({ tintColor }) => (
         <View>
-           <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
+           <Icon style={[{color: tintColor}]} size={25} name={'md-information-circle-outline'}/>  
           
         </View>
       )

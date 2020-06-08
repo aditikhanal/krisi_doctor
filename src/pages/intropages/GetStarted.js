@@ -3,7 +3,7 @@ import { ImageBackground, Image, StyleSheet, TouchableOpacity, Text, View } from
 import { useState } from 'react';
 
 const image = { uri: "https://www.jakpost.travel/wimages/large/82-827630_green-nature-hd-wallpaper-for-mobile-adsleaf-com.jpg" };
-import logo from '../../images/p.png'
+import logo from '../../images/pp.png'
 
 export default class Second extends React.Component {
   render(){
@@ -13,12 +13,13 @@ export default class Second extends React.Component {
           <View style={styles.logoContainer}>
             <Image source={logo} style={styles.logo}/>
           </View>
-          <Text style={styles.text}> An App to classify the plant disease..</Text>
+          <Text style={styles.text4}>कृषि डाक्टर  </Text>
+          <Text style={styles.text}>बिरुवाको रोग वर्गीकृत गर्न एक अनुप्रयोग..</Text>
           
-          <Text style={styles.text1}> Trust the best agriculture app around....</Text>
+          <Text style={styles.text1}>सबै भन्दा राम्रो कृषि अनुप्रयोगलाई विश्वास गर्नुहोस् ....</Text>
           
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Third')}
-              style={{backgroundColor:'#1CBE08',width:180,height:46,marginTop:80,marginLeft:5,
+              style={{backgroundColor:'#1CBE08',width:180,height:46,marginTop:60,marginLeft:5,
               borderRadius:80, marginBottom:25,borderRadius:12,justifyContent:"center"}}><Text style={{
                                //fontFamily: 'ProximaNova-Regular',
                                 fontSize: 20,
@@ -30,7 +31,7 @@ export default class Second extends React.Component {
                                marginLeft:37,
                                 marginTop: 0,
                                 justifyContent: 'center'
-                  }}>Get Started!</Text></TouchableOpacity>
+                  }}> सुरु गर्नुहोस!</Text></TouchableOpacity>
 
         </ImageBackground> 
       </View>        
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 180,
     width: 200,
-    paddingTop:0,
+    paddingTop:10,
     paddingBottom:0
   },
   image: {
@@ -67,14 +68,22 @@ const styles = StyleSheet.create({
   },
   text1: {
     fontSize:26,
-    paddingTop: 50,
-    paddingBottom: 60,
-    paddingLeft: 93,
+    paddingTop: 60,
+    paddingBottom: 50,
+    paddingLeft:78,
     paddingRight:5,
     fontWeight: "bold",
     color: "white",
     alignItems: "center",
     
-  }
+  },
+  text4: {
+    fontSize:40,
+    paddingTop:20,
+    paddingLeft:10,
+    fontWeight: "bold",
+    color: "white",
+    fontStyle:"italic"
+  },
   
 });

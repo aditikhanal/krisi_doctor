@@ -20,22 +20,22 @@ export default class CustomSidebarMenu extends Component {
     this.items = [
       {
         navOptionThumb: 'home',
-        navOptionName: 'Home',
+        navOptionName: ' गृह ',
         screenToNavigate: 'NavScreen1',
       },
       {
         navOptionThumb: 'message',
-        navOptionName: 'Get in touch',
+        navOptionName: 'सन्देश पठाउनुहोस्',
         screenToNavigate: 'NavScreen2',
       },
       {
         navOptionThumb: 'image',
-        navOptionName: 'images',
+        navOptionName: 'छविहरू',
         screenToNavigate: 'NavScreen3',
       },
       {
         navOptionThumb: 'phone',
-        navOptionName: 'Contact Info',
+        navOptionName: 'सम्पर्क गर्नुहोस',
         screenToNavigate: 'NavScreen4',
       },
     ];

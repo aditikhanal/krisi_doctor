@@ -20,7 +20,7 @@ export default class Screen2 extends Component {
 
   submit()
   {
-    alert("Thank you!! Your message has been sent.")
+    alert("धन्यवाद!! तपाईंको सन्देश पठाईयो।")
   }
   render() {
     return (
@@ -28,22 +28,23 @@ export default class Screen2 extends Component {
           <View style={styles.logoContainer}>
             <Image source={logo} style={styles.logo}/>
           </View> 
-          <Text style={styles.text1}>Message Us</Text>
-          <Text style={styles.text2}> Drop us your mail & messages and we will answer your queries.  </Text>
+          <Text style={styles.text4}>कृषि डाक्टर  </Text>
+          <Text style={styles.text1}>कृपया हामीलाई सन्देश पठाउनुहोस्।</Text>
+          <Text style={styles.text2}>हामीलाई तपाईंको मेल र सन्देशहरू ड्रप गर्नुहोस् र हामी तपाईंको प्रश्नहरूको उत्तर दिनेछौं। </Text>
 
-          <TextInput placeholder="Full Name"
+          <TextInput placeholder="पुरा नाम"
           style={ styles.textBox}
             onChangeText={(text)=>{this.setState({name:text})}}
            >
            </TextInput>
 
-           <TextInput placeholder="Enter your Email"
+           <TextInput placeholder="तपाईंको ईमेल प्रविष्ट गर्नुहोस्"
            style={ styles.textBox}
             onChangeText={(text)=>{this.setState({email:text})}}
            >
            </TextInput>
 
-           <TextInput placeholder="Any Queries?"
+           <TextInput placeholder="कुनै प्रश्नहरू?"
            style={ styles.textBox1}
             onChangeText={(text)=>{this.setState({message:text})}}
            >
@@ -51,7 +52,7 @@ export default class Screen2 extends Component {
 
            <TouchableOpacity 
           onPress={() => {this.submit()}}
-              style={{backgroundColor:'#000',width:155,height:45,marginTop:20,marginLeft:5,
+              style={{backgroundColor:'#000',width:155,height:45,marginTop:10,marginLeft:5,
                marginBottom:10,borderRadius:12,justifyContent:"center",borderRadius:20,
                borderWidth: 0,}}><Text style={{
                                //fontFamily: 'ProximaNova-Regular',
@@ -60,10 +61,10 @@ export default class Screen2 extends Component {
                                 fontWeight: '700',
                                 color: 'white',
                                 marginTop:0,
-                               marginLeft:40,
+                               marginLeft:28,
                                 marginTop: 0,
                                 justifyContent:'center',
-                  }}>Submit</Text></TouchableOpacity>
+                  }}>बुझाउनुहोस्</Text></TouchableOpacity>
 
        </View>
     );
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   textBox1:{
     borderColor:'black',
     borderWidth:2,
-    padding:10,
+    padding:20,
     marginHorizontal:50,
     marginVertical: 15,
     height: 70,
@@ -100,20 +101,32 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: "center",
-    height: 180,
-    width: 200
+    height: 140,
+    width: 180,
+    paddingTop:15
   },
   text1: {
-    fontSize:35,
+    fontSize:19,
     paddingLeft:40,
     paddingRight:50,
     fontWeight: "bold",
     color: "black",
+    paddingTop:6,
   },
   text2: {
-    fontSize:17,
+    fontSize:15,
     color: "black",
     paddingLeft: 40,
     paddingRight: 40, 
-  }
+    paddingTop:3
+  },
+  text4: {
+    fontSize:40,
+    paddingTop:57,
+    paddingLeft:10,
+    fontWeight: "bold",
+    color: "white",
+    fontStyle:"italic"
+  },
+  
 });

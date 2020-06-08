@@ -46,7 +46,7 @@ export default class Intro2 extends React.Component {
             <View style={styles.firstView}>
             <Image source={require("../../images/intro2.png")} style={{width:350,height:420,marginTop:10}}>
               </Image>
-            <Text style={styles.headerText}>Focus on the damages of the leaves</Text>
+            <Text style={styles.headerText}>पातको प्रभावित भागको फोटो लिनुहोस्!!</Text>
             <RadioForm
                         radio_props={radio_props}
                         initial={2}
@@ -66,7 +66,7 @@ export default class Intro2 extends React.Component {
                      <TouchableOpacity 
                     onPress={() => this.props.navigation.navigate('Welcome')}>
                         <Text style={styles.skip}>
-                            SKIP
+                        छोड्नुहोस्
                     </Text>
                     </TouchableOpacity>
            

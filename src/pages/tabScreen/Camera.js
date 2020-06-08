@@ -145,7 +145,7 @@ export default class App extends Component{
                 <Image source={source} style={{
                   height: 350, width: 350
                 }} resizeMode="contain" /> :
-                <Text style={styles.text}>Select Picture</Text>
+                <Text style={styles.text}>Select</Text>
             }
             <View style={styles.boxes}>
               {this.renderResults()}
@@ -154,7 +154,7 @@ export default class App extends Component{
           :
           <View>
            <TouchableOpacity style={styles.button} onPress={this.onSelectModel.bind(this, "MobileNet")}>
-          <Text style={styles.buttonText}>Select Picture</Text>
+          <Text style={styles.buttonText}>चित्र चयन गर्नुहोस्</Text>
         </TouchableOpacity>
           
           </View>
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontSize: 15
+    fontSize: 18
   },
   box: {
     position: 'absolute',
