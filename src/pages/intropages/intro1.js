@@ -30,7 +30,7 @@ export default class Intro1 extends React.Component {
     
             <View style={styles.firstView}>
             <ImageBackground source={image} style={styles.image}>
-            <Text style={styles.text}> WELCOME TO KRISI DOCTOR!!</Text>
+            <Text style={styles.text}> WELCOME TO KRISI DOCTOR!!!!</Text>
               <Text style={styles.text1}> Android app that detects diseases of</Text>
   
               <Text style={styles.text2}>Plants</Text>
