@@ -5,7 +5,9 @@ import {
   Text,
   View,
   TextInput,
-  Button
+  Button,
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 import { createAppContainer } from 'react-navigation';
@@ -13,6 +15,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import First from './introSwipeScreen';
 import Second from '../pages/intropages/GetStarted';
 import Third from './drawerNavigator.js'
+import Details from "../pages/tabScreen/Details"
+import Colors from "../constants/colors"
 
   
 const AppNavigator =createStackNavigator(
@@ -37,6 +41,19 @@ const AppNavigator =createStackNavigator(
         headerShown: false,
       }
     },
+    Details :{
+      screen: Details,
+      navigationOptions: ({ navigation }) => ({
+        title: 'Message Us',
+        headerLeft: ()=> <TouchableOpacity onPress={()=>{navigation.navigate("Home")}}><Image  source={require("../images/leftArrow.png") }  style={{width:10,height:20,marginLeft:20}}/></TouchableOpacity>,
+  
+        headerStyle: {
+          backgroundColor: Colors.tab,
+        },
+        headerTintColor: '#70B086',
+      }),
+    },
+
 
   });
 

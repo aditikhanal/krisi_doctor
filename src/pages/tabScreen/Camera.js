@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Image, Text, View, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Image, Text, View, TouchableOpacity,ScrollView } from 'react-native';
 import Tflite from 'tflite-react-native';
 import ImagePicker from 'react-native-image-picker';
 import Colors from "../../constants/colors.js"
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+  listenOrientationChange as loc,
+  removeOrientationListener as rol
+} from "react-native-responsive-screen"
 
 let tflite = new Tflite();
 
@@ -21,12 +27,13 @@ export default class App extends Component{
       source: null,
       imageHeight: height,
       imageWidth: width,
-      recognitions: []
+      recognitions: [],
+      disease:null
     };
   }
 
-  onSelectModel(model) {
-    this.setState({ model });
+  onSelectModel() {
+    this.setState( "MobileNet" );
     switch (model) {
       
       
@@ -46,9 +53,28 @@ export default class App extends Component{
       });
   }
 
-  onSelectImage() {
+  onSelectImage(model) {
+
+    this.setState({ model });
+    switch (model) {
+      
+      
+      default:
+        var modelFile = 'models/plant_disease.tflite';
+        var labelsFile = 'models/plant_labels.txt';
+    }
+    tflite.loadModel({
+      model: modelFile,
+      labels: labelsFile,
+    },
+      (err, res) => {
+        if (err)
+          console.log(err);
+        else
+          console.log(res);
+      });
     const options = {
-      title: 'Select Avatar',
+      title: 'Select Image',
       customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
       storageOptions: {
         skipBackup: true,
@@ -60,7 +86,7 @@ export default class App extends Component{
      
     
   
-    ImagePicker.launchImageLibrary(options, (response) => {
+    ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
@@ -94,6 +120,7 @@ export default class App extends Component{
                   console.log(err);
                 else
                   this.setState({ recognitions: res });
+                  
               });
         }
       }
@@ -115,7 +142,7 @@ export default class App extends Component{
             <Text key={id} style={{ marginTop:10,color: 'black' }}>
              
               {res["label"] + "-" + (res["confidence"] * 100).toFixed(0) + "%"}
-          
+              {this.props.navigation.navigate("Details",{disease:res["label"]})}
             </Text>
             </View>
             :<Text>Not Found</Text>
@@ -132,34 +159,52 @@ export default class App extends Component{
     const { model, source, imageHeight, imageWidth } = this.state;
     
     return (
-      <View style={styles.container}>
-        {model ?
+      <ScrollView style={styles.container}>
+        <View style={{backgroundColor:Colors.tab,marginTop:30,width:wp("90%"),marginLeft:wp("5%"),borderRadius:20}}>
+        <View style={{flexDirection:"row"}}>
+          <Image source={require("../../images/picture.png")} style={{width:50,height:60,marginTop:20,marginLeft:100}}></Image>
+          <Image source={require("../../images/arrow.png")} style={{width:50,height:50,marginTop:20,marginLeft:20}}></Image>
+          <Image source={require("../../images/details.png")} style={{width:40,height:50,marginTop:20,marginLeft:20}}></Image>
+        </View>
+        <View style={{flexDirection:"row"}}>
+          <Text style={{fontSize:14,fontWeight:"700",marginLeft:50,marginBottom:20}}>Select leaf's picture</Text>
+          <Text style={{fontSize:14,fontWeight:"700",marginLeft:40}}>View details</Text>
+        </View>
+        </View>
+        {
+              source ?
           <TouchableOpacity style={
             [styles.imageContainer, {
-              height: 350,
-              width: 350,
-              borderWidth: source ? 0 : 2
+             
+
+           
+            
             }]} onPress={this.onSelectImage.bind(this)}>
-            {
-              source ?
+           
                 <Image source={source} style={{
-                  height: 350, width: 350
-                }} resizeMode="contain" /> :
-                <Text style={styles.text}>Select</Text>
+                  height: 350, width: 350,marginTop:40
+                }} resizeMode="contain" />
+             </TouchableOpacity> :
+                  <TouchableOpacity onPress={this.onSelectImage.bind(this)} style={styles.button} >
+          <Text style={styles.buttonText}>चित्र चयन गर्नुहोस्</Text>
+        </TouchableOpacity> 
             }
             <View style={styles.boxes}>
               {this.renderResults()}
             </View>
-          </TouchableOpacity>
-          :
+         
+         
           <View>
-           <TouchableOpacity style={styles.button} onPress={this.onSelectModel.bind(this, "MobileNet")}>
-          <Text style={styles.buttonText}>चित्र चयन गर्नुहोस्</Text>
-        </TouchableOpacity>
+         
           
           </View>
-        }
-      </View>
+          {/* {source?
+        
+         <TouchableOpacity style={styles.button2} onPress={()=>this.props.navigation.navigate("Details")}>
+           <Text style={styles.buttonText}>View details</Text>
+         </TouchableOpacity>:null
+  } */}
+      </ScrollView>
     );
   }
 }
@@ -167,8 +212,8 @@ export default class App extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    //justifyContent: 'center',
+    //alignItems: 'center',
     backgroundColor: Colors.lightGreen
   },
   imageContainer: {
@@ -184,7 +229,20 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.tab,
     borderRadius: 10,
     height: 40,
-    alignItems: 'center',
+    alignSelf: 'center',
+    alignItems:"center",
+    marginTop:200,
+    justifyContent: 'center',
+    marginBottom: 10
+  },
+  button2: {
+    width: 200,
+    backgroundColor: Colors.tab,
+    borderRadius: 10,
+    height: 40,
+    alignSelf: 'center',
+    alignItems:"center",
+    marginTop:20,
     justifyContent: 'center',
     marginBottom: 10
   },
@@ -198,10 +256,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   boxes: {
-    //position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    top: 0,
+    alignSelf:"center"
   }
 });
