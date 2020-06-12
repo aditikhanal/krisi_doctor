@@ -142,8 +142,12 @@ export default class App extends Component{
             <Text key={id} style={{ marginTop:10,color: 'black' }}>
              
               {res["label"] + "-" + (res["confidence"] * 100).toFixed(0) + "%"}
-              {this.props.navigation.navigate("Details",{disease:res["label"]})}
+
+
             </Text>
+            <TouchableOpacity style={styles.button2} onPress={()=>this.props.navigation.navigate("Details",{disease:res["label"]})}>
+           <Text style={styles.buttonText}>View details</Text>
+         </TouchableOpacity>
             </View>
             :<Text>Not Found</Text>
             
@@ -200,9 +204,7 @@ export default class App extends Component{
           </View>
           {/* {source?
         
-         <TouchableOpacity style={styles.button2} onPress={()=>this.props.navigation.navigate("Details")}>
-           <Text style={styles.buttonText}>View details</Text>
-         </TouchableOpacity>:null
+         
   } */}
       </ScrollView>
     );
