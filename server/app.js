@@ -44,6 +44,15 @@ app.get("/", (req, res) => {
 
 })
 
+app.post("/searchdetails", (req, res) => {
+    name = req.body.name
+    Details.find({ name }).then(data => {
+        res.send(data)
+    }).catch(err => {
+        console.log(err)
+    })
+})
+
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}/`);
 })
