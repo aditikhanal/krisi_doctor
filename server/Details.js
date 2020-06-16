@@ -4,7 +4,8 @@ const DiseaseSchema = new mongoose.Schema(
     {
         name: String,
         about: String,
-        treatment: String
+        treatment: String,
+        symptoms:String
 
 
     }

@@ -149,7 +149,7 @@ export default class App extends Component{
            <Text style={styles.buttonText}>View details</Text>
          </TouchableOpacity>
             </View>
-            :<Text>Not Found</Text>
+            :<Text style={{fontSize:14,fontWeight:"600",marginTop:20}}>Sorry, Krisi doctor can not identify this crop</Text>
             
         }
   </View>
