@@ -58,16 +58,7 @@ const Details = ({ navigation }) => {
   
 
   const renderList = ((item) => {
-    const toggleData=(value)=>{
-      {
-          value=="Symptoms"?
-          setResult(item.symptoms):
-          setResult(item.treatment)
-      
-      }
-  
-  
-  }
+   
 
 
 const list = (items) => {
@@ -84,22 +75,13 @@ const list = (items) => {
   });
 };
 
-
-
-  
-  
-      
-  
-  
-
-  
-    return (
+return (
         <View style={styles.container}>
             <Text style={{ fontSize: 14, fontWeight: "400", marginLeft: 30, marginTop: 20 }}>Detected Disease</Text>
             <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 30, color: Colors.darkGreen }}>{item.name.toUpperCase()}</Text>
             <View style={{flexDirection:"row",marginTop: 30,marginLeft:30 }}>
-                <Icon style={[{ color: "gray",marginTop:2 }]} size={25} name={'md-information-circle-outline'} />
-                <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 10, color: "gray", }}>About</Text>
+                <Icon style={[{ color: "black",marginTop:2 }]} size={25} name={'md-information-circle-outline'} />
+                <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 10, color: "black", }}>About</Text>
             </View>
             <Text style={{fontSize:15,width:wp("85%"),marginLeft:wp("7%"),marginTop:10,fontWeight:"600",textAlign:'justify'}}>{item.about}</Text>
           
