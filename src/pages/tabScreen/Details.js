@@ -23,7 +23,7 @@ const Details = ({ navigation }) => {
     const [data, setData] = useState([])
     const [result,setResult] =useState("blah")
     const [loading, setLoading] = useState(true)
-    const [toggle,setToggle]=useState(true)
+   
 
  const fetchData = () => {
     fetch("https://krisi-doctor.herokuapp.com/searchdetails", {
