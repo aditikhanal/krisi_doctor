@@ -77,17 +77,17 @@ const list = (items) => {
 
 return (
         <View style={styles.container}>
-            <Text style={{ fontSize: 14, fontWeight: "400", marginLeft: 30, marginTop: 20 }}>Detected Disease</Text>
+            <Text style={{ fontSize: 14, fontWeight: "400", marginLeft: 30, marginTop: 20 }}>सम्भावित रोग</Text>
             <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 30, color: Colors.darkGreen }}>{item.name.toUpperCase()}</Text>
             <View style={{flexDirection:"row",marginTop: 30,marginLeft:30 }}>
                 <Icon style={[{ color: "black",marginTop:2 }]} size={25} name={'info-circle'} />
-                <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 10, color: "black", }}>About</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 10, color: "black", }}>रोगको बारेमा</Text>
             </View>
             <Text style={{fontSize:15,width:wp("85%"),marginLeft:wp("7%"),marginTop:10,fontWeight:"600",textAlign:'justify'}}>{item.about}</Text>
           
-            <Text style={{fontSize:20,width:wp("85%"),marginLeft:wp("7%"),marginTop:20,fontWeight:"700",marginBottom:10}}>Check if your crops have the following symptoms:</Text>
+            <Text style={{fontSize:20,width:wp("85%"),marginLeft:wp("7%"),marginTop:20,fontWeight:"700",marginBottom:10}}>तपाईंको बालीमा निम्न लक्षणहरू छन् कि छैनन् जाँच गर्नुहोस्:</Text>
             <View>{list(item.symptoms)}</View>
-            <Text style={{fontSize:20,width:wp("85%"),marginLeft:wp("7%"),marginTop:10,fontWeight:"700",marginBottom:10}}>Preventive measures:</Text>
+            <Text style={{fontSize:20,width:wp("85%"),marginLeft:wp("7%"),marginTop:10,fontWeight:"700",marginBottom:10}}>रोकथामका उपायहरु:</Text>
             <View style={{marginBottom:100}}>{list(item.treatment)}</View>
             
         </View>

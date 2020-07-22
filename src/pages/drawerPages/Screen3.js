@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView } from 'react-native';
 // import all basic components
 import Unorderedlist from 'react-native-unordered-list';
+import Colors from "../../constants/colors.js"
 
 export default class Screen3 extends Component {
   //Screen3 Component
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 0,
     //justifyContent: 'center',
-    backgroundColor: '#70B086'
+    backgroundColor: Colors.lightGreen
   },
   text: {
     fontSize:17,
