@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, Image, TouchableOpacity, View,Button} from 'react-native';  
 import { createAppContainer} from 'react-navigation';  
 import { createBottomTabNavigator } from 'react-navigation-tabs'; 
-import Icon from 'react-native-vector-icons/Ionicons';  
+import Icon from 'react-native-vector-icons/FontAwesome'; 
 import TabBar from "./TabBar.js"
 import HomeScreen from "../pages/tabScreen/Camera.js"
 import ProfileScreen from "../pages/tabScreen/Profile"
@@ -16,7 +16,7 @@ const TabNavigator = createBottomTabNavigator({
       tabBarLabel: 'Camera',
        tabBarIcon: ({ tintColor }) => (
         <View>
-          <Icon style={[{color: tintColor}]} size={25} name={'ios-camera'}/>  
+          <Icon style={[{color: tintColor}]} size={20} name={'camera'}/>  
           
     </View>
        )
@@ -28,7 +28,7 @@ const TabNavigator = createBottomTabNavigator({
       tabBarLabel: 'Info',
       tabBarIcon: ({ tintColor }) => (
         <View>
-           <Icon style={[{color: tintColor}]} size={25} name={'md-information-circle-outline'}/>  
+           <Icon style={[{color: tintColor}]} size={25} name={'info-circle'}/>  
           
         </View>
       )

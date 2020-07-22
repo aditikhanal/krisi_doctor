@@ -15,7 +15,7 @@ export default class CustomSidebarMenu extends Component {
     super();
     //Setting up the Main Top Large Image of the Custom Sidebar
     this.proileImage =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0VfKSPkcNM-li56qvwslyQUJa1iVPDU1TPdrnSE5o5edVZ1Xb&usqp=CAUQ';
+      'https://lh3.googleusercontent.com/KRvK4nodaw0dV2mHBVnQ7TVDcjsCNegKOBQeUOtMaIdN6dSLoJPXwhI8yZ4SZbe5aQ_hxg=s85';
     
     this.items = [
       {
@@ -29,8 +29,8 @@ export default class CustomSidebarMenu extends Component {
         screenToNavigate: 'NavScreen2',
       },
       {
-        navOptionThumb: 'image',
-        navOptionName: 'छविहरू',
+        navOptionThumb: 'alert',
+        navOptionName: 'ध्यान पुर्‍याउनुपर्ने कुराहरु ',
         screenToNavigate: 'NavScreen3',
       },
       {
@@ -45,7 +45,6 @@ export default class CustomSidebarMenu extends Component {
       <View style={styles.sideMenuContainer}>
         <View style={{backgroundColor:Colors.tab,  width: '100%',alignItems:"center",height:200}}>
     
-        
         </View>
         <Image
           source={{ uri: this.proileImage }}
@@ -94,10 +93,10 @@ const styles = StyleSheet.create({
   },
   sideMenuProfileIcon: {
     //resizeMode: 'center',
-    width: 180,
-    height: 180,
+    width: 140,
+    height: 140,
     marginTop: -90,
-    borderRadius: 180 / 2,
+    borderRadius: 160 / 2,
     marginBottom:50,
   },
 });

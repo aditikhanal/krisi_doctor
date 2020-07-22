@@ -3,7 +3,7 @@ import { Platform, StyleSheet, Image, Text, View, TouchableOpacity,FlatList ,Ale
 import Tflite from 'tflite-react-native';
 import ImagePicker from 'react-native-image-picker';
 import Colors from "../../constants/colors.js"
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
     widthPercentageToDP as wp,
@@ -80,7 +80,7 @@ return (
             <Text style={{ fontSize: 14, fontWeight: "400", marginLeft: 30, marginTop: 20 }}>Detected Disease</Text>
             <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 30, color: Colors.darkGreen }}>{item.name.toUpperCase()}</Text>
             <View style={{flexDirection:"row",marginTop: 30,marginLeft:30 }}>
-                <Icon style={[{ color: "black",marginTop:2 }]} size={25} name={'md-information-circle-outline'} />
+                <Icon style={[{ color: "black",marginTop:2 }]} size={25} name={'info-circle'} />
                 <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 10, color: "black", }}>About</Text>
             </View>
             <Text style={{fontSize:15,width:wp("85%"),marginLeft:wp("7%"),marginTop:10,fontWeight:"600",textAlign:'justify'}}>{item.about}</Text>

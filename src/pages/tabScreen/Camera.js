@@ -171,8 +171,8 @@ export default class App extends Component{
           <Image source={require("../../images/details.png")} style={{width:40,height:50,marginTop:20,marginLeft:20}}></Image>
         </View>
         <View style={{flexDirection:"row"}}>
-          <Text style={{fontSize:14,fontWeight:"700",marginLeft:50,marginBottom:20}}>Select leaf's picture</Text>
-          <Text style={{fontSize:14,fontWeight:"700",marginLeft:40}}>View details</Text>
+          <Text style={{fontSize:14,fontWeight:"700",marginLeft:45,marginBottom:20}}>पातको चित्र चयन गर्नुहोस्</Text>
+          <Text style={{fontSize:14,fontWeight:"700",marginLeft:40}}>विवरण हेर्नुहोस्</Text>
         </View>
         </View>
         {

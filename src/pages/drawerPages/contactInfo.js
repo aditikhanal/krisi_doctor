@@ -6,13 +6,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Colors from  "../../constants/colors"
-import { Card} from 'react-native-elements';
+import {Card} from 'react-native-elements';
 
 const openDial=()=>{
   if(Platform.OS === "android"){
-      Linking.openURL("tel:9848983054")
+      Linking.openURL("tel:9876543210")
    }else{
-      Linking.openURL("telprompt:9848983054")
+      Linking.openURL("telprompt:9876543210")
    }    
 }
 
@@ -28,7 +28,7 @@ class ProfileScreen extends React.Component {
             <View style={{alignItems:"center"}}>
                     <Image
                         style={{width:120,height:120,borderRadius:60, marginTop: -50}}
-                        source={{uri:"https://lh3.googleusercontent.com/991kthWAO1VlfecnNk8XNwm_bRWxil7nG34yGi0VoD1PlCO05xAZS4ITXO5vcM-KVh0S=s85"}} 
+                        source={{uri:"https://lh3.googleusercontent.com/KRvK4nodaw0dV2mHBVnQ7TVDcjsCNegKOBQeUOtMaIdN6dSLoJPXwhI8yZ4SZbe5aQ_hxg=s85"}} 
                     />
             </View>
           <Text style={styles.text4}>कृषि डाक्टर</Text>
@@ -39,7 +39,7 @@ class ProfileScreen extends React.Component {
           <Text style={styles.text1}>थप विवरणहरूको लागि:</Text>
            <View style={styles.card}> 
            <Card containerStyle={styles.mycard} onPress={()=>{
-                    Linking.openURL("mailto:krisidoctor@gmail.com")
+                    Linking.openURL("mailto:abc@gmail.com")
                 }}>
                     <View style={styles.cardContent }>
                     <Icon name="envelope" size={30} color="#fff" />
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   text4: {
     fontSize:28,
     paddingTop:0,
-    paddingLeft:107,
+    paddingLeft:115,
     fontWeight: "bold",
     color: "white",
     fontStyle:"italic"
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     color: "black",
     margin: 15,
     alignItems: "center", 
-    paddingBottom:20,
+    paddingBottom:10,
     marginTop:20
   },
   mycard:{

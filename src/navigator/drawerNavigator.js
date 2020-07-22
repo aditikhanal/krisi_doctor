@@ -26,7 +26,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 //Import all the screens
 import Screen1 from './bottomTabNavigator';
 import Screen2 from '../pages/drawerPages/messageScreen';
-import Screen3 from '../pages/drawerPages/images';
+import Screen3 from '../pages/drawerPages/Screen3';
 import Screen4 from '../pages/drawerPages/contactInfo';
 import Colors from "../constants/colors"
 
@@ -154,7 +154,7 @@ const DrawerNavigatorExample = createDrawerNavigator(
     //For the Custom sidebar menu we have to provide our CustomSidebarMenu
     contentComponent: CustomSidebarMenu,
     //Sidebar width
-    drawerWidth: Dimensions.get('window').width - 130,
+    drawerWidth: Dimensions.get('window').width - 175,
   },
   
 );

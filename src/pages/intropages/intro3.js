@@ -174,7 +174,7 @@ export default class Intro2 extends React.Component {
         fontSize: 20,
         fontWeight: '700',
         fontFamily: "ProximaNova-Semibold",
-        marginTop: 25,
+        marginTop: 15,
         textDecorationLine: 'underline',
     }
   
