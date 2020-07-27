@@ -75,7 +75,7 @@ export default class App extends Component {
       });
     const options = {
       title: 'पातको चित्र चयन गर्नुहोस्',
-  
+
       storageOptions: {
         skipBackup: true,
         path: 'images',
@@ -130,26 +130,25 @@ export default class App extends Component {
   titleCase(str) {
     var splitStr = str.toLowerCase().split(' ');
     for (var i = 0; i < splitStr.length; i++) {
-        // You do not need to check if i is larger than splitStr length, as your for does that for you
-        // Assign it back to the array
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+      // You do not need to check if i is larger than splitStr length, as your for does that for you
+      // Assign it back to the array
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
     // Directly return the joined string
-    return splitStr.join(' '); 
- }
-
- healthyClasses(str)
- {
- 
-  if(str.search("healthy")!=-1){
-    return false
-
-  }
-  else{
-    return true
+    return splitStr.join(' ');
   }
 
- }
+  healthyClasses(str) {
+
+    if (str.search("healthy") != -1) {
+      return false
+
+    }
+    else {
+      return true
+    }
+
+  }
   renderResults() {
     const { model, recognitions, imageHeight, imageWidth } = this.state;
     switch (model) {
@@ -162,17 +161,17 @@ export default class App extends Component {
             <View>
               {(res["confidence"]) >= 0.5 ?
                 <View>
-                  <Text key={id} style={{ fontSize: 20, fontWeight: "700",marginTop:10, color: Colors.darkGreen,alignSelf:"center"  }}>
+                  <Text key={id} style={{ fontSize: 20, fontWeight: "700", marginTop: 10, color: Colors.darkGreen, alignSelf: "center" }}>
 
                     {this.titleCase(res["label"]) + "-" + (res["confidence"] * 100).toFixed(0) + "%"}
 
 
                   </Text>
-                  { this.healthyClasses(res["label"])?
-                  <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate("Details", { disease: res["label"] })}>
-                    <Text style={styles.buttonText}>थप विवरण हेर्नुहोस्</Text>
-                  </TouchableOpacity>
-                  :<Text style={{marginTop:10,fontSize: 17, fontWeight: "800", color: "black",alignSelf:"center" }}>तपाईंको बालीमा कुनै प्रकारको रोग छैन।</Text>}
+                  {this.healthyClasses(res["label"]) ?
+                    <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate("Details", { disease: res["label"] })}>
+                      <Text style={styles.buttonText}>थप विवरण हेर्नुहोस्</Text>
+                    </TouchableOpacity>
+                    : <Text style={{ marginTop: 10, fontSize: 17, fontWeight: "800", color: "black", alignSelf: "center" }}>तपाईंको बालीमा कुनै प्रकारको रोग छैन।</Text>}
                 </View>
                 : <Text style={{ fontSize: 14, fontWeight: "600", marginTop: 20 }}>माफ गर्नुहोस्, हामी यो बाली पहिचान गर्न सक्दैनौं।</Text>
 
