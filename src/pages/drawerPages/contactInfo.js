@@ -26,10 +26,8 @@ class ProfileScreen extends React.Component {
                style={{height:"25%"}}
              />
             <View style={{alignItems:"center"}}>
-                    <Image
-                        style={{width:120,height:120,borderRadius:60, marginTop: -50}}
-                        source={{uri:"https://lh3.googleusercontent.com/KRvK4nodaw0dV2mHBVnQ7TVDcjsCNegKOBQeUOtMaIdN6dSLoJPXwhI8yZ4SZbe5aQ_hxg=s85"}} 
-                    />
+            <Image source={require("../../images/pp.png")} style={{width:160,height:160,marginTop:-90, marginBottom:-9}}>
+              </Image>
             </View>
           <Text style={styles.text4}>कृषि डाक्टर</Text>
           <Text style={styles.text2}>हाम्रो अनुप्रयोग "कृषि डॉक्टर" छवि प्रसंस्करण को विचार प्रयोग गरी बिरुवाहरुमा रोग वर्गीकृत गर्न सहयोगी छ। तस्विरहरू प्रणालीमा प्रदान गरिन्छन र प्रणालीले छवि प्रसंस्करणको प्रविधिहरूको प्रयोग गरी प्रयोगकर्ताहरूलाई वर्गीकृत रोग दिन्छ।</Text>
@@ -103,9 +101,9 @@ const styles = StyleSheet.create({
     width: 200
   },
   text4: {
-    fontSize:28,
+    fontSize:30,
     paddingTop:0,
-    paddingLeft:115,
+    paddingLeft:110,
     fontWeight: "bold",
     color: "white",
     fontStyle:"italic"

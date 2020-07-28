@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { ImageBackground, Image, StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { useState } from 'react';
 
-const image = { uri: "https://www.jakpost.travel/wimages/large/82-827630_green-nature-hd-wallpaper-for-mobile-adsleaf-com.jpg" };
 import logo from '../../images/pp.png'
 
 export default class Second extends React.Component {
   render(){
   return(
      <View style={styles.container}>
-        <ImageBackground source={image} style={styles.image}>
+         <ImageBackground source={require("../../images/getstarted.jpg")} style={{width:360,height:695,marginTop:0}}>
           <View style={styles.logoContainer}>
             <Image source={logo} style={styles.logo}/>
           </View>
@@ -19,7 +18,7 @@ export default class Second extends React.Component {
           <Text style={styles.text1}>सबै भन्दा राम्रो कृषि अनुप्रयोगलाई विश्वास गर्नुहोस् ....</Text>
           
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Third')}
-              style={{backgroundColor:'#1CBE08',width:180,height:46,marginTop:60,marginLeft:5,
+              style={{backgroundColor:'#1CBE08',width:180,height:46,marginTop:50,marginLeft:88,
               borderRadius:80, marginBottom:25,borderRadius:12,justifyContent:"center"}}><Text style={{
                                //fontFamily: 'ProximaNova-Regular',
                                 fontSize: 20,
@@ -49,22 +48,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 180,
     width: 200,
-    paddingTop:10,
-    paddingBottom:0
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    paddingTop:30,
+    paddingLeft:155
   },
   text: {
     fontSize:15,
     fontWeight: "bold",
     color: "white",
     fontStyle: "italic",
-    paddingTop: 0,
+    paddingLeft: 58,
     paddingBottom: 30
-
   },
   text1: {
     fontSize:26,
@@ -75,12 +68,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     alignItems: "center",
-    
   },
   text4: {
     fontSize:40,
-    paddingTop:20,
-    paddingLeft:10,
+    paddingTop:40,
+    paddingLeft:82,
     fontWeight: "bold",
     color: "white",
     fontStyle:"italic"

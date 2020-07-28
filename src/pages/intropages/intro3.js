@@ -17,11 +17,6 @@ var radio_props = [
     { value: 2 }
 ];
 
-
-const image = { uri: "https://image.winudf.com/v2/image1/Y29tLkdyZWVuU3ByaW5nTGl2ZVdhbGxwYXBlckhRX3NjcmVlbl8wXzE1NjcwMDA2NTJfMDg4/screen-0.jpg?fakeurl=1&type=.jpg" };
-const image1 = { uri: "https://reusegrowenjoy.com/wp-content/uploads/Best-Apps-to-Help-You-Identify-Plants.jpg" };
-const image2 = { uri: "https://api.pestnet.org/media_store/submissions/2018/7/3b8d37f9-3072-4e70-b646-bf5780139335/ec-1_13_291_large.jpg" };
-
 export default class Intro2 extends React.Component {
 
     nextscreen=(value1)=>{
@@ -44,7 +39,7 @@ export default class Intro2 extends React.Component {
         <View style={styles.container}>
     
             <View style={styles.firstView}>
-            <Image source={require("../../images/intro2.png")} style={{width:350,height:420,marginTop:10}}>
+            <Image source={require("../../images/intro3.png")} style={{width:350,height:420,marginTop:10}}>
               </Image>
             <Text style={styles.headerText}>पातको प्रभावित भागको फोटो लिनुहोस्!!</Text>
             <RadioForm
@@ -61,7 +56,7 @@ export default class Intro2 extends React.Component {
                         buttonInnerColor={'black'}
                         formHorizontal={true}
                         buttonSize={10}
-                        style={{ alignSelf: 'center', marginTop: 20 }}
+                        style={{ alignSelf: 'center', marginTop: 0 }}
                     />
                      <TouchableOpacity 
                     onPress={() => this.props.navigation.navigate('Welcome')}>
@@ -88,7 +83,7 @@ export default class Intro2 extends React.Component {
       fontSize: 30,
       //textAlign: "center",
       paddingTop:30,
-      margin: 20,
+      margin: 25,
       color: 'black',
       fontWeight: "bold"
     },
@@ -140,33 +135,7 @@ export default class Intro2 extends React.Component {
      // flex:1,
       width: deviceWidth,
       justifyContent: 'center',
-      alignItems: 'center',
-      
-    },
-    secondView: {
-      width: deviceWidth,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    thirdView: {
-      width: deviceWidth,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    image: {
-      //flex: 1,
-     // resizeMode: "cover",
-     // width: wp("100%"),
-    },
-    image1: {
-     // flex: 1,
-      //resizeMode: "cover",
-     // width: 362,
-    },
-    image2: {
-      //flex: 1,
-     // resizeMode: "cover",
-     // width: 362,
+      alignItems: 'center',  
     },
     skip: {
         color: "black",

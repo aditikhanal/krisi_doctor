@@ -18,9 +18,7 @@ var radio_props = [
 ];
 
 
-const image = { uri: "https://image.winudf.com/v2/image1/Y29tLkdyZWVuU3ByaW5nTGl2ZVdhbGxwYXBlckhRX3NjcmVlbl8wXzE1NjcwMDA2NTJfMDg4/screen-0.jpg?fakeurl=1&type=.jpg" };
-const image1 = { uri: "https://reusegrowenjoy.com/wp-content/uploads/Best-Apps-to-Help-You-Identify-Plants.jpg" };
-const image2 = { uri: "https://api.pestnet.org/media_store/submissions/2018/7/3b8d37f9-3072-4e70-b646-bf5780139335/ec-1_13_291_large.jpg" };
+
 
 export default class Intro2 extends React.Component {
 
@@ -44,7 +42,7 @@ export default class Intro2 extends React.Component {
         <View style={styles.container}>
     
             <View style={styles.firstView}>
-            <Image source={require("../../images/intro1.png")} style={{width:300,height:400,marginTop:0}}>
+            <Image source={require("../../images/intro2.png")} style={{width:300,height:400,marginTop:0}}>
               </Image>
             <Text style={styles.headerText}>तस्वीरको नजिकबाट दृश्य लिन नबिर्सिनुहोला!!</Text>
             <RadioForm
@@ -143,16 +141,6 @@ export default class Intro2 extends React.Component {
       alignItems: 'center',
       
     },
-    secondView: {
-      width: deviceWidth,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    thirdView: {
-      width: deviceWidth,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
     image: {
       //flex: 1,
      // resizeMode: "cover",
@@ -173,7 +161,6 @@ export default class Intro2 extends React.Component {
         alignSelf: 'center',
         fontSize: 20,
         fontWeight: '700',
-        fontFamily: "ProximaNova-Semibold",
         marginTop: 20,
         textDecorationLine: 'underline',
     }
