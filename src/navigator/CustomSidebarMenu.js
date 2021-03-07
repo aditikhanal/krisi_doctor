@@ -47,7 +47,7 @@ export default class CustomSidebarMenu extends Component {
 
         </View>
         <Image
-          source={{ uri: this.proileImage }}
+          source={require("../images/pp.png")}
           style={styles.sideMenuProfileIcon}
         />
         {/*Setting up Navigation Options from option array using loop*/}

@@ -14,14 +14,14 @@ import {
 // import all basic components
 
 //Import React Navigation
-import {createAppContainer,createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import {createDrawerNavigator} from 'react-navigation-drawer';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 
 
 import ImagePicker from 'react-native-image-picker';
-import Icon from 'react-native-vector-icons/Ionicons'; 
+import Icon from 'react-native-vector-icons/Ionicons';
 
 //Import all the screens
 import Screen1 from './bottomTabNavigator';
@@ -63,7 +63,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
     screen: Screen1,
     navigationOptions: ({ navigation }) => ({
       title: 'Krisi Doctor',
-      headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: () => <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: Colors.tab,
       },
@@ -79,7 +79,7 @@ const Screen2_StackNavigator = createStackNavigator({
     screen: Screen2,
     navigationOptions: ({ navigation }) => ({
       title: 'Message Us',
-      headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: () => <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
         backgroundColor: Colors.tab,
@@ -96,7 +96,7 @@ const Screen3_StackNavigator = createStackNavigator({
     screen: Screen3,
     navigationOptions: ({ navigation }) => ({
       title: '3',
-      headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: () => <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: Colors.tab,
       },
@@ -112,7 +112,7 @@ const Screen4_StackNavigator = createStackNavigator({
     screen: Screen4,
     navigationOptions: ({ navigation }) => ({
       title: '4',
-      headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
+      headerLeft: () => <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: Colors.tab,
       },
@@ -156,6 +156,6 @@ const DrawerNavigatorExample = createDrawerNavigator(
     //Sidebar width
     drawerWidth: Dimensions.get('window').width - 175,
   },
-  
+
 );
 export default createAppContainer(DrawerNavigatorExample);

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -18,35 +18,38 @@ import Third from './drawerNavigator.js'
 import Details from "../pages/tabScreen/Details"
 import Colors from "../constants/colors"
 
-  
-const AppNavigator =createStackNavigator(
+
+console.disableYellowBox = true;
+
+
+const AppNavigator = createStackNavigator(
   {
-    Home :{
+    Home: {
       screen: First,
       navigationOptions: {
         headerShown: false,
       }
     },
 
-    Welcome :{
+    Welcome: {
       screen: Second,
       navigationOptions: {
         headerShown: false,
       }
     },
 
-    Third :{
+    Third: {
       screen: Third,
       navigationOptions: {
         headerShown: false,
       }
     },
-    Details :{
+    Details: {
       screen: Details,
       navigationOptions: ({ navigation }) => ({
         title: 'Message Us',
-        headerLeft: ()=> <TouchableOpacity onPress={()=>{navigation.navigate("Home")}}><Image  source={require("../images/leftArrow.png") }  style={{width:10,height:20,marginLeft:20}}/></TouchableOpacity>,
-  
+        headerLeft: () => <TouchableOpacity onPress={() => { navigation.navigate("Home") }}><Image source={require("../images/leftArrow.png")} style={{ width: 10, height: 20, marginLeft: 20 }} /></TouchableOpacity>,
+
         headerStyle: {
           backgroundColor: Colors.tab,
         },
@@ -57,4 +60,4 @@ const AppNavigator =createStackNavigator(
 
   });
 
-  export default createAppContainer(AppNavigator);
+export default createAppContainer(AppNavigator);

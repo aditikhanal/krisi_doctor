@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import Tflite from 'tflite-react-native';
+
 import ImagePicker from 'react-native-image-picker';
 import Colors from "../../constants/colors.js"
 import {
@@ -56,13 +57,13 @@ export default class App extends Component {
   onSelectImage(model) {
 
     this.setState({ model });
-    switch (model) {
 
 
-      default:
-        var modelFile = 'models/plant_disease.tflite';
-        var labelsFile = 'models/plant_labels.txt';
-    }
+
+
+    var modelFile = 'models/plant_disease.tflite';
+    var labelsFile = 'models/plant_labels.txt';
+
     tflite.loadModel({
       model: modelFile,
       labels: labelsFile,
@@ -74,12 +75,7 @@ export default class App extends Component {
           console.log(res);
       });
     const options = {
-      title: 'पातको चित्र चयन गर्नुहोस्',
 
-      storageOptions: {
-        skipBackup: true,
-        path: 'images',
-      },
     };
 
 
@@ -103,26 +99,21 @@ export default class App extends Component {
           imageWidth: width
         });
 
-        switch (this.state.model) {
+        tflite.runModelOnImage({
+          path,
+          imageMean: 128.0,
+          imageStd: 128.0,
+          numResults: 1,
+          threshold: 0.05
+        },
+          (err, res) => {
+            if (err)
+              console.log(err);
+            else
+              this.setState({ recognitions: res });
 
+          });
 
-
-          default:
-            tflite.runModelOnImage({
-              path,
-              imageMean: 128.0,
-              imageStd: 128.0,
-              numResults: 1,
-              threshold: 0.05
-            },
-              (err, res) => {
-                if (err)
-                  console.log(err);
-                else
-                  this.setState({ recognitions: res });
-
-              });
-        }
       }
     });
   }
@@ -149,6 +140,16 @@ export default class App extends Component {
     }
 
   }
+  cornTest(str) {
+    if (str.search("corn maize common rust") != -1) {
+      return true
+
+    }
+    else {
+      return false
+    }
+
+  }
   renderResults() {
     const { model, recognitions, imageHeight, imageWidth } = this.state;
     switch (model) {
@@ -159,22 +160,29 @@ export default class App extends Component {
         return recognitions.map((res, id) => {
           return (
             <View>
-              {(res["confidence"]) >= 0.5 ?
+              {this.cornTest(res["label"]) && (res["confidence"]) <= 0.9 ?
+                <Text style={{ fontSize: 14, fontWeight: "600", marginTop: 20 }}>माफ गर्नुहोस्, हामी यो बाली पहिचान गर्न सक्दैनौं।</Text>
+                :
                 <View>
-                  <Text key={id} style={{ fontSize: 20, fontWeight: "700", marginTop: 10, color: Colors.darkGreen, alignSelf: "center" }}>
 
-                    {this.titleCase(res["label"]) + "-" + (res["confidence"] * 100).toFixed(0) + "%"}
+                  {(res["confidence"]) >= 0.5 ?
+                    <View>
+                      <Text key={id} style={{ fontSize: 20, fontWeight: "700", marginTop: 10, color: Colors.darkGreen, alignSelf: "center" }}>
+
+                        {this.titleCase(res["label"]) + "-" + (res["confidence"] * 100).toFixed(0) + "%"}
 
 
-                  </Text>
-                  {this.healthyClasses(res["label"]) ?
-                    <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate("Details", { disease: res["label"] })}>
-                      <Text style={styles.buttonText}>थप विवरण हेर्नुहोस्</Text>
-                    </TouchableOpacity>
-                    : <Text style={{ marginTop: 10, fontSize: 17, fontWeight: "800", color: "black", alignSelf: "center" }}>तपाईंको बालीमा कुनै प्रकारको रोग छैन।</Text>}
+                      </Text>
+                      {this.healthyClasses(res["label"]) ?
+                        <TouchableOpacity style={styles.button2} onPress={() => this.props.navigation.navigate("Details", { disease: res["label"] })}>
+                          <Text style={styles.buttonText}>थप विवरण हेर्नुहोस्</Text>
+                        </TouchableOpacity>
+                        : <Text style={{ marginTop: 10, fontSize: 17, fontWeight: "800", color: "black", alignSelf: "center" }}> तपाईंको बालीमा कुनै प्रकारको रोग छैन।</Text>}
+                    </View>
+                    : <Text style={{ fontSize: 14, fontWeight: "600", marginTop: 20 }}>माफ गर्नुहोस्, हामी यो बाली पहिचान गर्न सक्दैनौं।</Text>
+
+                  }
                 </View>
-                : <Text style={{ fontSize: 14, fontWeight: "600", marginTop: 20 }}>माफ गर्नुहोस्, हामी यो बाली पहिचान गर्न सक्दैनौं।</Text>
-
               }
             </View>
           )
@@ -190,7 +198,7 @@ export default class App extends Component {
       <ScrollView style={styles.container}>
         <View style={{ backgroundColor: Colors.tab, marginTop: 30, width: wp("90%"), marginLeft: wp("5%"), borderRadius: 20 }}>
           <View style={{ flexDirection: "row" }}>
-            <Image source={require("../../images/picture.png")} style={{ width: 50, height: 60, marginTop: 20, marginLeft: 100 }}></Image>
+            <Image source={require("../../images/picture.png")} style={{ width: wp("13%"), height: 60, marginTop: 20, marginLeft: wp("25%") }}></Image>
             <Image source={require("../../images/arrow.png")} style={{ width: 50, height: 50, marginTop: 20, marginLeft: 20 }}></Image>
             <Image source={require("../../images/details.png")} style={{ width: 40, height: 50, marginTop: 20, marginLeft: 20 }}></Image>
           </View>
@@ -210,7 +218,7 @@ export default class App extends Component {
               }]} onPress={this.onSelectImage.bind(this)}>
 
               <Image source={source} style={{
-                height: 350, width: 350, marginTop: 40
+                height: 300, width: 300, marginTop: 40
               }} resizeMode="contain" />
             </TouchableOpacity> :
             <TouchableOpacity onPress={this.onSelectImage.bind(this)} style={styles.button} >
