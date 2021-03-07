@@ -154,7 +154,7 @@ const DrawerNavigatorExample = createDrawerNavigator(
     //For the Custom sidebar menu we have to provide our CustomSidebarMenu
     contentComponent: CustomSidebarMenu,
     //Sidebar width
-    drawerWidth: Dimensions.get('window').width - 175,
+    drawerWidth: Dimensions.get('window').width - 160,
   },
 
 );

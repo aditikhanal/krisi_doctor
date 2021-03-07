@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { ImageBackground, Image, StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { useState } from 'react';
 
-const image = { uri: "https://www.jakpost.travel/wimages/large/82-827630_green-nature-hd-wallpaper-for-mobile-adsleaf-com.jpg" };
 import logo from '../../images/pp.png'
 
 export default class Second extends React.Component {
@@ -64,9 +63,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     fontStyle: "italic",
-    paddingTop: 0,
+    paddingLeft: 58,
     paddingBottom: 30
-
   },
   text1: {
     fontSize: 26,

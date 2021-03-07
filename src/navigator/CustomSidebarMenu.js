@@ -44,7 +44,7 @@ export default class CustomSidebarMenu extends Component {
     return (
       <View style={styles.sideMenuContainer}>
         <View style={{ backgroundColor: Colors.tab, width: '100%', alignItems: "center", height: 200 }}>
-
+          
         </View>
         <Image
           source={require("../images/pp.png")}
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
     //resizeMode: 'center',
     width: 140,
     height: 140,
-    marginTop: -90,
+    marginTop: -75,
     borderRadius: 160 / 2,
-    marginBottom: 50,
+    marginBottom: 40,
   },
 });
