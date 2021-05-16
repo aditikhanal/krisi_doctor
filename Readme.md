@@ -13,6 +13,6 @@ npx react-native run-android
 ```
 # Screenshots
 
-![alt text](https://ibb.co/L5Qcks6)
-![alt text](https://ibb.co/nBsHLKq)
-![alt text](https://ibb.co/LtrCpRW)
+![image](https://ibb.co/L5Qcks6)
+![image](https://ibb.co/nBsHLKq)
+![image](https://ibb.co/LtrCpRW)
