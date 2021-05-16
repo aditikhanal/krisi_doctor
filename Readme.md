@@ -11,8 +11,3 @@ git clone https://github.com/aditikhanal/Krisi_Doctor.git
 npm install
 npx react-native run-android
 ```
-# Screenshots
-
-![image](https://ibb.co/L5Qcks6)
-![image](https://ibb.co/nBsHLKq)
-![image](https://ibb.co/LtrCpRW)
