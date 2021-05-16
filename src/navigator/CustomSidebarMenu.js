@@ -30,7 +30,7 @@ export default class CustomSidebarMenu extends Component {
       },
       {
         navOptionThumb: 'assignment',
-        navOptionName: 'ध्यान पुर्‍याउनुपर्ने कुराहरु ',
+        navOptionName: 'ध्यान पुर्‍याउनुपर्ने कुरा ',
         screenToNavigate: 'NavScreen3',
       },
       {
@@ -44,7 +44,7 @@ export default class CustomSidebarMenu extends Component {
     return (
       <View style={styles.sideMenuContainer}>
         <View style={{ backgroundColor: Colors.tab, width: '100%', alignItems: "center", height: 200 }}>
-          
+
         </View>
         <Image
           source={require("../images/pp.png")}

@@ -51,7 +51,7 @@ class Profile extends Component {
               fontWeight: '700',
               color: '#000',
               marginLeft: 12,
-              marginTop: -20,
+              marginTop:20,
 
             }}>हाम्रो अनुप्रयोग प्रयोग गर्न सजिलो चरणहरू!!</Text>
             <Text key={id} style={{
@@ -64,7 +64,7 @@ class Profile extends Component {
             }}>{items["info"]}</Text>
 
             <Image source={{ uri: items["picture"] }}></Image>
-            <Image style={{ width: 325, height: 500, marginTop: 10 }} source={{ uri: items["picture"] }}></Image>
+            <Image style={{ width: 320, height: 500, marginTop: 10 }} source={{ uri: items["picture"] }}></Image>
 
             <RadioForm
               radio_props={radio_props}

@@ -218,7 +218,7 @@ export default class App extends Component {
               }]} onPress={this.onSelectImage.bind(this)}>
 
               <Image source={source} style={{
-                height: 300, width: 300, marginTop: 40
+                height: 350, width: 350, marginTop: 40
               }} resizeMode="contain" />
             </TouchableOpacity> :
             <TouchableOpacity onPress={this.onSelectImage.bind(this)} style={styles.button} >
